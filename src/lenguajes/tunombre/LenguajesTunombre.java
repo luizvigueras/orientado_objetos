@@ -18,7 +18,7 @@ public class LenguajesTunombre {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        System.out.println("Mikjhyuhgtyfyt primr programita de lenguajes");
+        System.out.println("Mi primr programita de lenguajes");
         System.out.println("Esta es otra linea");
         //hoy veremos contructores y su sobrecarga
     }
