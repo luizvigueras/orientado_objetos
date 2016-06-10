@@ -17,11 +17,29 @@ import java.util.logging.Logger;
 
 public class segundaExecpcion {
     public static void main(String[] args) {
-        File f=new File("C:\\Users\\Luis Pomposo V\\Desktop\\texto");
+        File f=new File("C\\Users\\Luis Pomposo V\\Desktop\\texto.txt");
         try {
+            int x=2;
+            int y=0;
+            int div=x/y;
             FileInputStream fis=new FileInputStream(f);
-        } catch (FileNotFoundException ex) {
+            int ch=0;
+            StringBuilder builder=new StringBuilder();
+            while(( ch=fis.read() )!=-1){
+                builder.append((char)ch);
+                System.out.println("SE LEYO BIEN Y SE ENCONTRO ESTO"+builder.toString());{
+           
+            }catch(FileNotFoundException ex){
+                    System.out.println("checa el nombre de tu archivo");
+                    }catch(IOException ex){
+                      
+            
+        }catch(Exception e){
+        }finally{
+                    
+                }
+        {
             
         }
-    }
-}
+    
+
