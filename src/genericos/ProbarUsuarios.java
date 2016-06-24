@@ -5,6 +5,9 @@
  */
 package genericos;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Luis Pomposo V
@@ -16,7 +19,11 @@ public class ProbarUsuarios {
         Usuario u=new Usuario("Juan",20,"juan@gmail.com");
         //PASO 2 GUARDAR USUARIO;
         PersistenciaUsuario p=new PersistenciaUsuario();
-        p.guardar(u);
+        try {
+            p.guardar(u);
+        } catch (Exception ex) {
+            Logger.getLogger(ProbarUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
         try{
             p.guardar(u);
             System.out.println("USUARIO GUARDADO");

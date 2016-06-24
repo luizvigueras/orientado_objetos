@@ -27,8 +27,8 @@ public class segundaExecpcion {
             StringBuilder builder=new StringBuilder();
             while(( ch=fis.read() )!=-1){
                 builder.append((char)ch);
-                System.out.println("SE LEYO BIEN Y SE ENCONTRO ESTO"+builder.toString());{
-           
+                System.out.println("SE LEYO BIEN Y SE ENCONTRO ESTO"+builder.toString());
+            }
             }catch(FileNotFoundException ex){
                     System.out.println("checa el nombre de tu archivo");
                     }catch(IOException ex){
@@ -38,8 +38,11 @@ public class segundaExecpcion {
         }finally{
                     
                 }
-        {
-            
+            }
         }
+
+        
+            
+        
     
 

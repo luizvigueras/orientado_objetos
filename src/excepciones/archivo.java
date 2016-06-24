@@ -102,7 +102,7 @@ public class archivo extends javax.swing.JFrame {
                 
         
       try {
-          validarArchivo.validarExtencion(extencion);
+       //   ValidarArchivo.validarExtencion(extencion);
           FileInputStream fis=new FileInputStream(f);
           int ch=0;
            StringBuilder builder=new StringBuilder();
@@ -115,7 +115,7 @@ public class archivo extends javax.swing.JFrame {
                 String mensaje="SE LEYO BIEN Y SE ENCONTRO ESTO:"+builder.toString();
                         JOptionPane.showMessageDialog(null, "extension\n"+extencion,"informacion",JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null,e.getMessage(), "extension\n"+extencion,"informacion",JOptionPane.ERROR_MESSAGE);
+             //   JOptionPane.showMessageDialog(null,e.getMessage(), "extension\n"+extencion,"informacion",JOptionPane.ERROR_MESSAGE);
             }
           
       } catch (FileNotFoundException ex) {

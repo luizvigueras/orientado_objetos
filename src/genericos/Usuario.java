@@ -12,14 +12,44 @@ public class Usuario implements Serializable {
     private Integer edad;
     private String email;
 
-    Usuario(String text, int parseInt, String text0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Usuario(String nombre, Integer edad, String email) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.email = email;
     }
+
+  
     
     @Override
     public String toString(){
         return "usuario{" + "nombre=" + nombre + ",edad= " + edad + ", email=" + email +'}';
         
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Integer getEdad() {
+        return edad;
+    }
+
+    public void setEdad(Integer edad) {
+        this.edad = edad;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
            
 }

@@ -5,6 +5,9 @@
  */
 package genericos;
 
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -40,6 +43,9 @@ public class InterfaceUsuario extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        buscarTodos = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaUsuario = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -115,15 +121,54 @@ public class InterfaceUsuario extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Guardar Usuario", jPanel1);
 
+        buscarTodos.setText("BUSCAR A TODOS LOS USUARIOS");
+        buscarTodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarTodosActionPerformed(evt);
+            }
+        });
+
+        tablaUsuario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Nombre", "Edad", "Email"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tablaUsuario);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 514, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buscarTodos))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 253, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(buscarTodos)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Buscar usuario", jPanel2);
@@ -170,6 +215,30 @@ public class InterfaceUsuario extends javax.swing.JFrame {
                 }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void buscarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarTodosActionPerformed
+        try {
+            // TODO add your handling code here:
+            //PRIMERO GENERAMOS UN OBJETO DE LA CLASE PERSISTENCIA USUARIOS
+            PersistenciaUsuario p=new PersistenciaUsuario();
+            ArrayList<Usuario> usuarios= p.buscarTodos();
+                 int tama=   usuarios.size();
+                 //JOptionPane.showConfirmDialog(this,"USUARIOS ENCONTRADOS:"+tama);
+                 int fila=0;
+                 for(Usuario u: usuarios){
+                     tablaUsuario.setValueAt(u.getNombre(), fila, 0);
+                     tablaUsuario.setValueAt(u.getEdad(),fila,1);
+                     tablaUsuario.setValueAt(u.getEmail(),fila,2);
+                     fila++;
+                     
+                   
+                     
+                 }
+        } catch (Exception ex) {
+            
+           JOptionPane.showConfirmDialog(this,ex.getMessage());
+        }
+    }//GEN-LAST:event_buscarTodosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -209,6 +278,7 @@ public class InterfaceUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField Tedad;
     private javax.swing.JTextField Temail;
     private javax.swing.JTextField Tnombre;
+    private javax.swing.JButton buscarTodos;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -216,6 +286,8 @@ public class InterfaceUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable tablaUsuario;
     // End of variables declaration//GEN-END:variables
 }
